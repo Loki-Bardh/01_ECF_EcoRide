@@ -10,14 +10,16 @@
 </head>
 <body>
     <nav>
+        <img src="/static/icons/EcoRide_logo.png" height="320"alt="EcoRide logo">
         <ul>
             <li><a href="/templates/home.html">Accueil</a></li>
             <li><a href="/templates/faq.html">FAQ</a></li>
             <li><a href="/templates/contact.html">Co-Voit'</a></li>
         </ul>
         <div class="search-bar">
-            <input type="text" placeholder="Search...">
-            <button type="submit">Search</button>
+            <button type="submit">Rechercher</button>
+            <input type="text" placeholder="de...">
+            <input type="text" placeholder="à...">
         </div>
         <div class="user-menu">
             <a href="/templates/login.html">Login</a>
@@ -26,11 +28,6 @@
     </nav>
 
     <main>
-        <div class="container">
-            <h1>Welcome to Eco Ride</h1>
-            <p>This is the start of the basic template</p>
-            <button class="btn">Click Me!</button>
-        </div>
 
         {% block main %}{% endblock %}
 
