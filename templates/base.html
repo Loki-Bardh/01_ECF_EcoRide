@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!--Sets adaptive screen and characters-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
     <link rel="stylesheet" href="styles.css">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+    <title>Eco Ride {% block title %}{% endblock %}</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to My Web Page</h1>
-        <p>This is a simple HTML document with a CSS stylesheet.</p>
-        <button class="btn">Click Me!</button>
-    </div>
+    <nav>
+        <img src="/static/icons/EcoRide_logo.png" height="320"alt="EcoRide logo">
+        <ul>
+            <li><a href="/templates/home.html">Accueil</a></li>
+            <li><a href="/templates/faq.html">FAQ</a></li>
+            <li><a href="/templates/contact.html">Co-Voit'</a></li>
+        </ul>
+        <div class="search-bar">
+            <button type="submit">Rechercher</button>
+            <input type="text" placeholder="de...">
+            <input type="text" placeholder="à...">
+        </div>
+        <div class="user-menu">
+            <a href="/templates/login.html">Login</a>
+            <a href="/templates/register.html">Register</a>
+        </div>
+    </nav>
+
+    <main>
+
+        {% block main %}{% endblock %}
+
+    </main>
 </body>
 <footer>
     
