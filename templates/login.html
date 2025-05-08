@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+    Connexion
+{% endblock %}
+
+{% block main %}
+    <form class="vertical-form"action="/login" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Pseudonyme" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="password" placeholder="Mot de Passe" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Connexion</button>
+    </form>
+{% endblock %}
