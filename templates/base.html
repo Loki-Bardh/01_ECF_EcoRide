@@ -1,31 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <!--Sets adaptive screen and characters-->
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Rubik:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/mystyle.css">
     <script defer src="{{ url_for('static', filename='script.js') }}"></script>
     <title>Eco Ride {% block title %}{% endblock %}</title>
 </head>
 <body>
-    <nav>
-        <img src="/static/icons/EcoRide_logo.png" height="320"alt="EcoRide logo">
-        <ul>
-            <li><a href="/templates/home.html">Accueil</a></li>
-            <li><a href="/templates/faq.html">FAQ</a></li>
-            <li><a href="/templates/contact.html">Co-Voit'</a></li>
-        </ul>
-        <div class="search-bar">
-            <button type="submit">Rechercher</button>
-            <input type="text" placeholder="de...">
-            <input type="text" placeholder="à...">
+    <header class="container">
+        <div class="headerContent">
+            <img src="/static/icons/EcoRide_logo.png" height="120"alt="EcoRide logo">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/templates/home.html">accueil</a></li>
+                    <li><a href="/templates/search.html">co-voiturage</a></li>
+                    <li><a href="/templates/profile_user.html">profile</a></li>
+                    <li><a href="/templates/history.html">historique</a></li>
+                    <li><a href="/templates/reviews.html">commentaires</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="user-menu">
-            <a href="/templates/login.html">Login</a>
-            <a href="/templates/register.html">Register</a>
+        <div class="searchBar">
+            <input class="textFill" type="text" placeholder="Point de Départ">
+            <button class="buttonDark" type="submit">go</button>
+            <input class="textFill" type="text" placeholder="Destination">
         </div>
-    </nav>
+    </header>
 
     <main>
 

@@ -1,0 +1,149 @@
+/* ========= Root Theme Variables ========= */
+:root {
+    /* Colors */
+    --primary: #7C8363;
+    --secondary: #EDF4F2;
+    --light: #D9DAD9;
+    --dark: #31473A;
+    --link: #68A4A5;
+    --extra: #4C8055;
+
+    /*font family*/
+    --fontButton: 'Rubik', Arial, sans-serif;
+    --fontTitle: 'Rubik', Arial, sans-serif;
+    --fontContent: 'Poppins', Arial, sans-serif;
+    --fontTechnical: 'Lato', Arial, sans-serif;
+    
+  
+    /* Typography Sizes (in rem) */
+    --font-xs: 0.75rem;  /* 12px */
+    --font-sm: 0.875rem; /* 14px */
+    --font-md: 1rem;     /* 16px */
+    --font-lg: 1.25rem;  /* 20px */
+    --font-xl: 1.5rem;   /* 24px */
+    --font-xxl: 2rem;    /* 32px */
+  }
+  
+  /* ========= Global Reset & Base Styles ========= */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 16px; /* 1rem = 16px base */
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    line-height: 1.6;
+  }
+  
+  /* ========= Typography ========= */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fontTitle);
+    color: var(--dark);
+    font-weight: 700;
+  }
+  
+  h1 { font-size: var(--font-xxl); }
+  h2 { font-size: var(--font-xl); }
+  h3 { font-size: var(--font-lg); }
+  h4 { font-size: var(--font-md); }
+  h5 { font-size: var(--font-sm); }
+  h6 { font-size: var(--font-xs); }
+  
+  p, span {
+    font-family: var(--fontContent);
+    font-size: var(--font-md);
+  }
+  
+  /* ========= UI Components ========= */
+  a {
+    color: var(--secondary);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  button.buttonDark {
+    text-transform: uppercase;
+    font-size: large;
+    font-weight: 500;
+    font-family: var(--fontButton);
+    background-color: var(--dark);
+    color: var(--secondary);
+    padding: 2px 5px;
+    border-radius: 8px;
+  }
+
+input.textFill {
+    font-family: var(--fontContent);
+    font-size: var(--font-md);
+    font-style: italic;
+    padding: 2px 10px;
+    border-radius: 8px;
+    border: 0.5px solid var(--dark);
+    background-color: var(--light);
+    color: var(--dark);
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  input.textFill:hover {
+    border-color: var(--secondary);
+  }
+  
+  input.textFill:focus {
+    outline: none;
+    border-color: var(--link);
+  }
+  
+  /* ========= Header ========= */
+  
+header.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+nav {
+    color: var(--secondary);
+    font-family: var(--fontTitle);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+div.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    background-color: var(--dark);
+  }
+  div.searchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--primary);
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+   
+  
