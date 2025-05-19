@@ -27,8 +27,8 @@
         </div>
         <div class="searchBar">
             <input class="textFill" type="text" placeholder="Point de Départ">
-            <button class="buttonDark" type="submit">go</button>
             <input class="textFill" type="text" placeholder="Destination">
+            <button class="buttonDark" type="submit">go</button>
         </div>
     </header>
 
@@ -37,8 +37,17 @@
         {% block main %}{% endblock %}
 
     </main>
+
+    <footer>
+        <div class="footerContent">
+            <ul class="footerList">
+                <li><a href="mailto:info@ecoride.com">info@ecoride.com</a></li>
+                <li><button class="buttonLight" href="/templates/terms.html">mentions légales</button></li>
+                <li><a href="mailto:help@ecoride.com">help@ecoride.com</a></li>
+            </ul>
+            <p class="footerText">© 2023 Eco Ride. Tous droits réservés.</p>
+        </div>
+    </footer>
 </body>
-<footer>
-    
-</footer>
+
 </html>
