@@ -208,3 +208,42 @@
 
   
 /* ========= Media Queries ========= */
+
+/* ========= General ========= */
+
+div.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+div.container > * {
+    /* Remove margin-bottom because in row flex it's horizontal spacing */
+    margin-bottom: 0;
+}
+
+div.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+div.text > * {
+    margin-bottom: 1rem;
+}
+
+div.text > h1 {
+    font-size: var(--font-lg);
+    margin: 0;  /* To avoid extra spacing */
+}
+
+div.text > p, div.text > button {
+    font-size: var(--font-md);
+    margin: 1rem;
+}
