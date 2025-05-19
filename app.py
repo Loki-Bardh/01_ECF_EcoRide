@@ -3,11 +3,9 @@ from flask import Flask, render_template
 from dotenv import load_dotenv
 #from flask_sqlalchemy import SQLAlchemy
 #from flask_pymongo import PyMongo
+from app import create_app
 
-load_dotenv()
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
+app = create_app()
 
 # PostgreSQL config
 #app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("POSTGRES_URI")
@@ -33,6 +31,9 @@ def accueil():
 
     return render_template("base.html")
 
+@app.route("/home")
+def home():
+    return render_template("home.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
