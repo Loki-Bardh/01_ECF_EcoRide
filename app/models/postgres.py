@@ -52,7 +52,7 @@ class Vehicle(db.Model):
     total_spots = db.Column(db.Integer)
     photo_url = db.Column(db.String(255))
 
-    user = db.relationship('User', back_populates="vehicle")
+    user = db.relationship('User', back_populates="Vehicle")
 
 class Rideshare(db.Model):
     __tablename__ = 'rideshares'
@@ -68,3 +68,4 @@ class Rideshare(db.Model):
     status = db.Column(db.String(30))  # waiting, confirmed, en route, cancelled
 
     driver = db.relationship('User', back_populates="rides")
+    

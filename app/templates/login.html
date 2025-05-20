@@ -6,13 +6,35 @@
 {% endblock %}
 
 {% block main %}
-    <form class="vertical-form"action="/login" method="post">
-        <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Pseudonyme" type="text">
-        </div>
-        <div class="mb-3">
-            <input class="form-control mx-auto w-auto" name="password" placeholder="Mot de Passe" type="password">
-        </div>
-        <button class="btn btn-primary" type="submit">Connexion</button>
+<!-- Modal Container -->
+<div id="authModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span id="closeAuthModal" class="close">&times;</span>
+    
+    <!-- Toggle Buttons -->
+    <div class="modal-toggle">
+      <button id="showLogin" class="active">Connexion</button>
+      <button id="showRegister">Créer un compte</button>
+    </div>
+    
+    <!-- Login Form -->
+    <form id="loginForm" style="display:block;">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Mot de Passe" required>
+      <button type="submit">Connexion</button>
+      <div id="loginError" style="color:red;"></div>
     </form>
+    
+    <!-- Register Form -->
+    <form id="registerForm" style="display:none;">
+      <input type="text" id="registerUsername" placeholder="Pseudonyme" required>
+      <input type="email" id="registerEmail" placeholder="Email" required>
+      <input type="password" id="registerPassword" placeholder="Mot de Passe" required>
+      <input type="password" id="registerConfirmation" placeholder="Confirmation" required>
+      <button type="submit">Créer un compte</button>
+      <div id="registerError" style="color:red;"></div>
+    </form>
+  </div>
+</div>
+
 {% endblock %}

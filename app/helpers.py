@@ -1,6 +1,16 @@
-from flask import redirect, url_for, session
+import os, shutil
+from flask import redirect, url_for, render_template, session
+from functools import wraps
 
-def redirect_based_on_role():
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if "user_id" not in session:
+            return redirect(url_for("users.login"))
+        return f(*args, **kwargs)
+    return decorated_function
+
+def role_redirect():
     user = session.get("user")
     
     if not user:
@@ -18,3 +28,61 @@ def redirect_based_on_role():
     else:
         # Unknown role
         return redirect(url_for("error.error"))
+
+
+# Created using ChatGPT and Ducky
+
+def cache_clear(local_cache):
+    if not os.path.exists(local_cache):
+        return
+    for item in os.listdir(local_cache):
+        item_path = os.path.join(local_cache, item)
+        try:
+            if os.path.isfile(item_path):
+                os.remove(item_path)
+            elif os.path.isdir(item_path):
+                shutil.rmtree(item_path)
+        except Exception as e:
+            print(f"Error deleting {item_path}: {e}")
+
+
+
+def error(message, code=400):
+    """Render message as an error to user."""
+
+    def escape(s):
+        """
+        Escape special characters.
+
+        https://github.com/jacebrowning/memegen#special-characters
+        """
+        for old, new in [
+            ("-", "--"),
+            (" ", "-"),
+            ("_", "__"),
+            ("?", "~q"),
+            ("%", "~p"),
+            ("#", "~h"),
+            ("/", "~s"),
+            ('"', "''"),
+        ]:
+            s = s.replace(old, new)
+        return s
+
+    return render_template("error.html", top=code, bottom=escape(message)), code
+
+
+def login_required(f):
+    """
+    Decorate routes to require login.
+
+    https://flask.palletsprojects.com/en/latest/patterns/viewdecorators/
+    """
+
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if session.get("user_id") is None:
+            return redirect("/login")
+        return f(*args, **kwargs)
+
+    return decorated_function
