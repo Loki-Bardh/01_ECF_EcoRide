@@ -5,7 +5,7 @@ def redirect_based_on_role():
     
     if not user:
         # Not logged in
-        return redirect(url_for("home.error"))  # or render_template('error.html')
+        return redirect(url_for("error.error"))  # or render_template('error.html')
 
     role = user.get("role")
 
