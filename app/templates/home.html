@@ -13,8 +13,8 @@
         <h1>Bienvenue à l'appli Eco Ride</h1>
         <p>EcoRide fraichement crée en France, a pour objectif de réduire l'impact environnemental des déplacements en encourageant le covoiturage avec une approche écologique.
         EcoRide est une plateforme de covoiturage pour les voyageurs soucieux de l'environnement et ceux qui cherchent une solution économique pour leurs déplacements. Malheureusement la plateforme gere uniquement les déplacements en voitures pour l'instant.</p>
-        <form action="{{ url_for('user.register') }}" method="get">
-            <button type="submit" class="buttonLight">Créer un compte</button>
+        <form action="{{ url_for('user.login') }}" method="get">
+            <button type="submit" class="show-auth-modal open-register buttonLight">Créer un compte</button>
         </form>
     </div>
     <div class="right-image">

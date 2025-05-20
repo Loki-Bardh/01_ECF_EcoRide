@@ -247,3 +247,12 @@ div.text > p, div.text > button {
     font-size: var(--font-md);
     margin: 1rem;
 }
+
+form.centre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
