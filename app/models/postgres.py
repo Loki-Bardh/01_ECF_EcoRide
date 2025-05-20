@@ -5,7 +5,7 @@ from datetime import datetime
 
 db = SQLAlchemy()
 
-class User(db.Model):
+class user(db.Model):
     __tablename__ = 'users'
     
     id = db.Column(db.Integer, primary_key=True)
@@ -24,11 +24,11 @@ class User(db.Model):
     photo_url = db.Column(db.String(255))
     bio = db.Column(db.Text)
 
-    profile = db.relationship('Profile', uselist=False, back_populates="user")
-    vehicle = db.relationship('Vehicle', back_populates="user", uselist=False)
-    rides = db.relationship('Rideshare', back_populates="driver")
+    profile = db.relationship('profile', uselist=False, back_populates="user")
+    vehicle = db.relationship('vehicle', back_populates="user", uselist=False)
+    rides = db.relationship('rideshare', back_populates="driver")
 
-class Profile(db.Model):
+class profile(db.Model):
     __tablename__ = 'profiles'
     
     id = db.Column(db.Integer, primary_key=True)
@@ -36,9 +36,9 @@ class Profile(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    user = db.relationship('User', back_populates="profile")
+    user = db.relationship('user', back_populates="profile")
 
-class Vehicle(db.Model):
+class vehicle(db.Model):
     __tablename__ = 'vehicles'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -52,9 +52,9 @@ class Vehicle(db.Model):
     total_spots = db.Column(db.Integer)
     photo_url = db.Column(db.String(255))
 
-    user = db.relationship('User', back_populates="vehicle")
+    user = db.relationship('user', back_populates="vehicle")
 
-class Rideshare(db.Model):
+class rideshare(db.Model):
     __tablename__ = 'rideshares'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -67,4 +67,5 @@ class Rideshare(db.Model):
     price_per_person = db.Column(db.Float)
     status = db.Column(db.String(30))  # waiting, confirmed, en route, cancelled
 
-    driver = db.relationship('User', back_populates="rides")
+    driver = db.relationship('user', back_populates="rides")
+    

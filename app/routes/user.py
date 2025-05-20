@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, session, redirect, url_for, flash
+from app.models import User
+
 
 user_bp = Blueprint("user", __name__)
 
@@ -29,7 +31,7 @@ def register():
         db.session.commit()
 
         flash("Account created successfully. Please log in.")
-        return redirect(url_for("users.login"))
+        return redirect(url_for("user.login"))
 
     return render_template("register.html")
 

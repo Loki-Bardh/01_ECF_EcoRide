@@ -14,3 +14,4 @@ def register_routes(app):
     app.register_blueprint(search_bp, url_prefix="/search")
     app.register_blueprint(error_bp, url_prefix="/error")
     app.register_blueprint(log_bp, url_prefix="/log")
+

@@ -5,3 +5,4 @@ admin_bp = Blueprint("admin", __name__)
 @admin_bp.route("/")
 def admin():
     return render_template("profile_admin.html")
+
