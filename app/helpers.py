@@ -1,7 +1,6 @@
-from flask import redirect, url_for, session
-
+import os, shutil
+from flask import redirect, url_for, render_template, session
 from functools import wraps
-from flask import session, redirect, url_for
 
 def login_required(f):
     @wraps(f)
@@ -29,22 +28,23 @@ def role_redirect():
     else:
         # Unknown role
         return redirect(url_for("error.error"))
-    
-    
-from flask import redirect, render_template, session
-from functools import wraps
+
 
 # Created using ChatGPT and Ducky
+
 def cache_clear(local_cache):
+    if not os.path.exists(local_cache):
+        return
     for item in os.listdir(local_cache):
         item_path = os.path.join(local_cache, item)
         try:
             if os.path.isfile(item_path):
-                    os.remove(item_path)  # Remove the file
+                os.remove(item_path)
             elif os.path.isdir(item_path):
-                    shutil.rmtree(item_path)  # Remove the directory and its contents
+                shutil.rmtree(item_path)
         except Exception as e:
-             print(f"Error deleting {item_path}: {e}")
+            print(f"Error deleting {item_path}: {e}")
+
 
 
 def error(message, code=400):

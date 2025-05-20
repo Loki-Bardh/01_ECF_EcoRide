@@ -19,8 +19,8 @@
                 <ul>
                     <li><a href="{{ url_for('home.home') }}">accueil</a></li>
                     <li><a href="{{ url_for('search.search') }}">co-voiturage</a></li>
-                    <li><a id="openRegisterModal" href="{{ url_for('home.profile_redirect') }}">profile</a></li>
-                    <li><a id="openRegisterModal" href="{{ url_for('log.history') }}">historique</a></li>
+                    <li><a id="openRegisterModal" class="show-auth-modal open-register" href="{{ url_for('home.profile_redirect') }}">profile</a></li>
+                    <li><a id="openRegisterModal" class="show-auth-modal open-register" href="{{ url_for('log.history') }}">historique</a></li>
                     <li><a href="{{ url_for('log.review') }}">commentaires</a></li>
                 </ul>
             </nav>
@@ -33,7 +33,32 @@
     </header>
 
     <main>
+    <div id="authModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span id="closeAuthModal" class="close">&times;</span>
 
+            <div>
+                <button id="showLogin" class="active">Login</button>
+                <button id="showRegister">Register</button>
+            </div>
+
+            <form id="loginForm" method="POST" action="/login" style="display:block;">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Mot de Passe" required>
+                <button type="submit">Connexion</button>
+                <div id="loginError" style="color:red;"></div>
+            </form>
+
+            <form id="registerForm" method="POST" action="/register" style="display:none;">
+                <input type="text" name="username" placeholder="Pseudonyme" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Mot de Passe" required>
+                <input type="password" name="confirmation" placeholder="Confirmation" required>
+                <button type="submit">Créer un compte</button>
+                <div id="registerError" style="color:red;"></div>
+            </form>
+        </div>
+    </div>
         {% block main %}{% endblock %}
 
     </main>

@@ -12,7 +12,7 @@ def user():
 def register():
     if request.method == "POST":
         username = request.form.get("username")
-        contact = request.form.get("contact")
+        email = request.form.get("email")
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
 
@@ -24,7 +24,7 @@ def register():
         if User.query.filter_by(email=contact).first():
             return error("Email already registered", 400)
 
-        new_user = User(email=contact, role="user")  # Or allow selection from form
+        new_user = User(email=email, role="user")  # Or allow selection from form
         new_user.set_password(password)
 
         db.session.add(new_user)
@@ -33,7 +33,7 @@ def register():
         flash("Account created successfully. Please log in.")
         return redirect(url_for("user.login"))
 
-    return render_template("register.html")
+    return render_template("profile.html")
 
 
 @user_bp.route("/login", methods=["GET", "POST"])
@@ -55,4 +55,4 @@ def login():
         session["user_role"] = user.role
         return redirect(url_for("home.profile_redirect"))
 
-    return render_template("login.html")
+    return render_template("profile.html")
