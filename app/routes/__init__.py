@@ -4,6 +4,7 @@ from .admin import admin_bp
 from .employee import employee_bp
 from .search import search_bp
 from .error import error_bp
+from .log import log_bp
 
 def register_routes(app):
     app.register_blueprint(home_bp)
@@ -12,3 +13,4 @@ def register_routes(app):
     app.register_blueprint(employee_bp, url_prefix="/employee")
     app.register_blueprint(search_bp, url_prefix="/search")
     app.register_blueprint(error_bp, url_prefix="/error")
+    app.register_blueprint(log_bp, url_prefix="/log")
